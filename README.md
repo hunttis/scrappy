@@ -1,0 +1,3 @@
+# Starting Scrappy
+
+npm start

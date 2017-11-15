@@ -1,0 +1,31 @@
+{
+  "name": "scrappy",
+  "main": "server.js",
+  "description": "Mythicspoiler notificationbot",
+  "version": "0.1.1",
+  "private": false,
+  "engines": {
+    "node": "6.*"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IBM-Bluemix/get-started-node"
+  },
+  "dependencies": {
+    "cfenv": "^1.0.x",
+    "cheerio": "^1.0.0-rc.1",
+    "express": "^4.15.x",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  },
+  "author": "Hunttis",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^1.16.0"
+  }
+}

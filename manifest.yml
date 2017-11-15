@@ -1,0 +1,6 @@
+---
+applications:
+ - name: scrappy
+   random-route: true
+   memory: 128M
+   buildpack: https://github.com/cloudfoundry/nodejs-buildpack
