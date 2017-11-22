@@ -8,6 +8,7 @@
     "node": "8.*"
   },
   "scripts": {
+    "test": "SLACK_WEBHOOK_KEY=123 SLACK_CHANNEL=#mtg jest",
     "start": "node server.js"
   },
   "repository": {
@@ -16,7 +17,7 @@
   },
   "dependencies": {
     "cfenv": "^1.0.x",
-    "cheerio": "^1.0.0-rc.1",
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.15.x",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
@@ -26,6 +27,7 @@
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^1.16.0"
+    "eslint-plugin-import": "^1.16.0",
+    "jest": "^21.2.1"
   }
 }
