@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`responser getNewCards() should return difference of two card lists 1`] = `
+Array [
+  Object {
+    "cardUrl": "ust/cards/urzaacademyheadmaster.jpg",
+    "spoilBlock": "UNSTABLE",
+    "spoilDate": "November 21",
+  },
+  Object {
+    "cardUrl": "ust/cards/drjuliusjumblemorph.jpg",
+    "spoilBlock": "UNSTABLE",
+    "spoilDate": "November 16",
+  },
+  Object {
+    "cardUrl": "ust/cards/superduperdeathray.jpg",
+    "spoilBlock": "RIVALS OF IXALAN",
+    "spoilDate": "November 16",
+  },
+]
+`;
+
+exports[`responser getResponse() should return slack formatted response 1`] = `
+Object {
+  "body": Object {
+    "attachments": Array [
+      Object {
+        "footer": "UNSTABLE, RIVALS OF IXALAN",
+      },
+    ],
+    "channel": "#mtg",
+    "icon_emoji": ":mtg-black:",
+    "text": "New spoilers! <http://mythicspoiler.com/newspoilers.html|Take a look!>",
+    "username": "Scrappy",
+  },
+  "json": true,
+  "method": "POST",
+  "uri": "https://hooks.slack.com/services/123",
+}
+`;

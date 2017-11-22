@@ -3,22 +3,11 @@ const app = express();
 const cfenv = require("cfenv");
 const rp = require('request-promise');
 const scraper = require('./scraper')
+const responser = require('./responser')
 
 const headOptions = {
-  method: 'HEAD', 
-  uri: 'http://www.mythicspoiler.com/newspoilers.html', 
-};
-
-const newSpoilersOptions = {
-  method: 'POST',
-  uri: 'https://hooks.slack.com/services/' + process.env.SLACK_WEBHOOK_KEY,
-  json: true,
-  body: {
-    "icon_emoji": ":mtg-black:",
-    "channel": process.env.SLACK_CHANNEL,
-    "username": "Scrappy",
-    "text": "New spoilers! <http://mythicspoiler.com/newspoilers.html|Take a look!>"
-  }
+  method: 'HEAD',
+  uri: 'http://www.mythicspoiler.com/newspoilers.html',
 };
 
 app.use(function(req, res) {
@@ -40,9 +29,9 @@ app.listen(port, function() {
     console.log('First value is ', lastModified);
   });
 
-  let previousCard = null
+  let previousCards = []
   scraper.scrape().then(function(initialScrape) {
-    previousCard = initialScrape[0].cardUrl
+    previousCards = initialScrape
   });
 
   setInterval(function() {
@@ -66,11 +55,13 @@ app.listen(port, function() {
         console.log('Empty response (or no changes)');
         return;
       }
-      if (response[0].cardUrl !== previousCard) {
-        previousCard = response[0].cardUrl;
-        rp(newSpoilersOptions).then((slackResponse) => {
+
+      const newCards = responser.getNewCards(previousCards, response)
+      if (newCards.length > 0) {
+        rp(responser.getResponse(previousCards, response)).then((slackResponse) => {
           console.log('Posted notification to Slack!');
         })
+        previousCards = response;
       }
     })
   }, interval);
