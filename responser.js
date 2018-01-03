@@ -15,12 +15,7 @@ const getResponse = (previousCards, newCards) => {
       "icon_emoji": ":mtg-black:",
       "channel": process.env.SLACK_CHANNEL,
       "username": "Scrappy",
-      "text": "New spoilers! <http://mythicspoiler.com/newspoilers.html|Take a look!>",
-      "attachments": [
-        {
-          "footer": uniq(newCardList.map(card => card.spoilBlock)).join(', ')
-        }
-      ]
+      "text": "New spoilers for " + uniq(newCardList.map(card => card.spoilBlock)).join(' and ') + "! <http://mythicspoiler.com/newspoilers.html|Take a look!>"
     }
   };
 }
