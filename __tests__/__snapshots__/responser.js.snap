@@ -23,14 +23,9 @@ Array [
 exports[`responser getResponse() should return slack formatted response 1`] = `
 Object {
   "body": Object {
-    "attachments": Array [
-      Object {
-        "footer": "UNSTABLE, RIVALS OF IXALAN",
-      },
-    ],
     "channel": "#mtg",
     "icon_emoji": ":mtg-black:",
-    "text": "New spoilers! <http://mythicspoiler.com/newspoilers.html|Take a look!>",
+    "text": "New spoilers for UNSTABLE and RIVALS OF IXALAN! <http://mythicspoiler.com/newspoilers.html|Take a look!>",
     "username": "Scrappy",
   },
   "json": true,
